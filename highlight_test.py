@@ -1,4 +1,4 @@
-from highligh import PiThing
+from highlight import PiThing
 import time
 
 
