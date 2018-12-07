@@ -1,7 +1,8 @@
 import RPi.GPIO as GPIO
 import time
 
-LED_PIN = 20
+RED_PIN = 20
+UV_PIN = 16
 ECHO_PIN = 21
 TRIG_PIN = 26
 
@@ -9,7 +10,7 @@ TRIG_PIN = 26
 class PiThing(object):
     def __init__(self):
         GPIO.setmode(GPIO.BCM)
-        GPIO.setup(LED_PIN,GPIO.OUT) # LED output
+        GPIO.setup(RED_PIN,GPIO.OUT) # LED output
         GPIO.setup(ECHO_PIN,GPIO.IN) # Echo input
         GPIO.setup(TRIG_PIN,GPIO.OUT) # Trigger output
 
@@ -36,5 +37,8 @@ class PiThing(object):
 
         return distance
 
-    def setLED(self,value):
-        GPIO.output(LED_PIN,value)
+    def setRedLED(self,value):
+        GPIO.output(RED_PIN,value)
+
+    def setUVLED(self,value):
+        GPIO.output(UV_PIN,value)
