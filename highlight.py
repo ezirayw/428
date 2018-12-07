@@ -11,6 +11,7 @@ class PiThing(object):
     def __init__(self):
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(RED_PIN,GPIO.OUT) # LED output
+        GPIO.setup(UV_PIN,GPIO.OUT)
         GPIO.setup(ECHO_PIN,GPIO.IN) # Echo input
         GPIO.setup(TRIG_PIN,GPIO.OUT) # Trigger output
 
