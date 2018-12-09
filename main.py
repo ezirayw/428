@@ -26,7 +26,7 @@ GPIO.setup(TRIG_PIN,GPIO.OUT) # Trigger output
 def index():
     return render_template('index.html')
 
-@app.route('/index.html',methods = ['POST'])
+@app.route('/index',methods = ['POST'])
 def hello():
     skin = request.form["selectSkin"]
     attachment = request.form["selectAttachment"]
