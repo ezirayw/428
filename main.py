@@ -24,6 +24,10 @@ GPIO.setup(ECHO_PIN,GPIO.IN) # Echo input
 GPIO.setup(TRIG_PIN,GPIO.OUT) # Trigger output
 @app.route('/',methods = ['POST'])
 def index():
+    return render_template('index.html')
+
+@app.route('/index.html',methods = ['POST'])
+def hello():
     skin = request.form["selectSkin"]
     attachment = request.form["selectAttachment"]
     color = request.form["selectWave"]
@@ -39,7 +43,6 @@ def index():
         time.sleep(0.25)
         pi_thing.setUVLED(False)
         time.sleep(0.25)
-    return render_template('index.html')
-
+    return redirect('/')
 if __name__ == "__main__":
     app.run(host='0.0.0.0',port=5000, debug=True)
