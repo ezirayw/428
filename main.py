@@ -33,9 +33,10 @@ def hello():
     attachment = request.form["selectAttachment"]
     color = request.form["selectWave"]
     return redirect('/')
+if __name__ == "__main__":
+    app.run(host='0.0.0.0',port=5000, debug=True)
+
 if color == "Infrared":
     pi_thing.setRedLED(True)
 if color == "UV":
     pi_thing.setUVLED(True)
-if __name__ == "__main__":
-    app.run(host='0.0.0.0',port=5000, debug=True)
