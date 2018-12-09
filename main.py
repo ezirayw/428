@@ -32,15 +32,18 @@ def hello():
     skin = request.form["selectSkin"]
     attachment = request.form["selectAttachment"]
     color = request.form["selectWave"]
+
+    if color == "Infrared":
+        pi_thing.setRedLED(True)
+        time.sleep(0.25)
+        pi_thing.setRedLED(False)
+        time.sleep(0.25)
+
+    if color == "UV":
+        pi_thing.setUVLED(True)
+        time.sleep(0.25)
+        pi_thing.setUVLED(False)
+        time.sleep(0.25)
     return redirect('/')
 if __name__ == "__main__":
     app.run(host='0.0.0.0',port=5000, debug=True)
-
-if color == "Infrared":
-    pi_thing.setRedLED(True)
-    time.sleep(0.25)
-    pi_thing.setRedLED(False)
-    time.sleep(0.25)
-
-if color == "UV":
-    pi_thing.setUVLED(True)
