@@ -31,7 +31,6 @@ def therapy():
     skin = request.form['selectSkin']
     attachment = request.form['selectAttachment']
     color = request.form['selectWave']
-    UVbutton = request.form['UV']
 
     if color == 'I':
         pi_thing.setRedLED(True)
@@ -40,7 +39,11 @@ def therapy():
     if color == 'U':
         pi_thing.setUVLED(True)
         pi_thing.setRedLED(False)
+    return redirect('/')
 
+@app.route('/sterilze',methods = ['POST'])
+def sterilze():
+    UVbutton = request.form['UV']
     if UVbutton == 'UV':
         pi_thing.setUVLED(True)
     return redirect('/')
