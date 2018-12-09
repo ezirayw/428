@@ -32,13 +32,13 @@ def hello():
     attachment = request.form["selectAttachment"]
     color = request.form["selectWave"]
 
-    if color == "Infrared":
+    if color == "I":
         pi_thing.setRedLED(True)
         time.sleep(0.25)
         pi_thing.setRedLED(False)
         time.sleep(0.25)
 
-    if color == "UV":
+    if color == "U":
         pi_thing.setUVLED(True)
         time.sleep(0.25)
         pi_thing.setUVLED(False)
