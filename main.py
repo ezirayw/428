@@ -22,7 +22,7 @@ GPIO.setup(RED_PIN,GPIO.OUT) # LED output
 GPIO.setup(UV_PIN,GPIO.OUT)
 GPIO.setup(ECHO_PIN,GPIO.IN) # Echo input
 GPIO.setup(TRIG_PIN,GPIO.OUT) # Trigger output
-@app.route('/',methods = ['POST'])
+@app.route('/')
 def index():
     return render_template('index.html')
 
