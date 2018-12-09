@@ -38,5 +38,9 @@ if __name__ == "__main__":
 
 if color == "Infrared":
     pi_thing.setRedLED(True)
+    time.sleep(0.25)
+    pi_thing.setRedLED(False)
+    time.sleep(0.25)
+
 if color == "UV":
     pi_thing.setUVLED(True)
