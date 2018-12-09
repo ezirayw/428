@@ -24,21 +24,21 @@ GPIO.setup(ECHO_PIN,GPIO.IN) # Echo input
 GPIO.setup(TRIG_PIN,GPIO.OUT) # Trigger output
 @app.route('/',methods = ['POST'])
 def index():
-        skin = request.form["selectSkin"]
-        attachment = request.form["selectAttachment"]
-        color = request.form["selectWave"]
+    skin = request.form["selectSkin"]
+    attachment = request.form["selectAttachment"]
+    color = request.form["selectWave"]
 
-        if color == "Infrared":
-            pi_thing.setRedLED(True)
-            time.sleep(0.25)
-            pi_thing.setRedLED(False)
-            time.sleep(0.25)
+    if color == "Infrared":
+        pi_thing.setRedLED(True)
+        time.sleep(0.25)
+        pi_thing.setRedLED(False)
+        time.sleep(0.25)
 
-        if color == "UV":
-            pi_thing.setUVLED(True)
-            time.sleep(0.25)
-            pi_thing.setUVLED(False)
-            time.sleep(0.25)
+    if color == "UV":
+        pi_thing.setUVLED(True)
+        time.sleep(0.25)
+        pi_thing.setUVLED(False)
+        time.sleep(0.25)
     return render_template('index.html')
 
 if __name__ == "__main__":
