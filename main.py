@@ -24,6 +24,7 @@ GPIO.setup(ECHO_PIN,GPIO.IN) # Echo input
 GPIO.setup(TRIG_PIN,GPIO.OUT) # Trigger output
 @app.route('/')
 def index():
+    pi_thing.setRedLED(True)
     return render_template('index.html')
 
 @app.route('/index.html',methods = ['POST'])
