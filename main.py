@@ -26,19 +26,19 @@ GPIO.setup(TRIG_PIN,GPIO.OUT) # Trigger output
 def index():
     return render_template('index.html')
 
-@app.route('/index',methods = ['POST'])
-def hello():
-    skin = request.form["selectSkin"]
-    attachment = request.form["selectAttachment"]
-    color = request.form["selectWave"]
+@app.route('/therapy',methods = ['POST'])
+def therapy():
+    skin = request.form['selectSkin']
+    attachment = request.form['selectAttachment']
+    color = request.form['selectWave']
 
-    if color == "I":
+    if color == 'I':
         pi_thing.setRedLED(True)
         time.sleep(0.25)
         pi_thing.setRedLED(False)
         time.sleep(0.25)
 
-    if color == "U":
+    if color == 'U':
         pi_thing.setUVLED(True)
         time.sleep(0.25)
         pi_thing.setUVLED(False)
