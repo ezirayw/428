@@ -48,7 +48,7 @@ def sterilze():
     if UVbutton == 'UV' and count == 0:
         pi_thing.setUVLED(True)
         count = count + 1
-    else:
+    elif UVbutton =='UV' and count == 1:
         pi_thing.setUVLED(False)
         count = count - 1
     return redirect('/')
