@@ -18,7 +18,7 @@ class PiThing(object):
     def ultrasound(self):
         print("Distance Measurement in Progress")
         print("Distance Measurement in Progress")
-        GPIO.output(TRIG,False)
+        GPIO.output(TRIG_PIN,False)
         print("Waiting for Sensor to Settle")
         time.sleep(2)
         GPIO.output(TRIG_PIN,True)
