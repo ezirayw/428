@@ -8,9 +8,7 @@ app = Flask(__name__)
 pi_thing = PiThing()
 
 RED_PIN = 20
-RED_COND = 6
 UV_PIN = 16
-UV_COND = 12
 ECHO_PIN = 21
 TRIG_PIN = 26
 

@@ -17,17 +17,18 @@ class PiThing(object):
 
     def ultrasound(self):
         print("Distance Measurement in Progress")
+        print("Distance Measurement in Progress")
         GPIO.output(TRIG,False)
         print("Waiting for Sensor to Settle")
         time.sleep(2)
-        GPIO.output(TRIG,True)
+        GPIO.output(TRIG_PIN,True)
         time.sleep(0.00001)
-        GPIO.output(TRIG,False)
+        GPIO.output(TRIG_PIN,False)
 
-        while GPIO.input(ECHO) == 0:
+        while GPIO.input(ECHO_PIN) == 0:
             pulse_start = time.time()
 
-        while GPIO.input(ECHO) == 1:
+        while GPIO.input(ECHO_PIN) == 1:
             pulse_end = time.time()
 
         pulse_duration = pulse_end - pulse_start
