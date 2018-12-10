@@ -45,7 +45,7 @@ def therapy():
 def sterilze():
     UVbutton = request.form['UV']
     count = 0;
-    if UVbutton == 'UV' && count == 0:
+    if UVbutton == 'UV' and count == 0:
         pi_thing.setUVLED(True)
         count = count + 1
     else:
