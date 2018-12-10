@@ -47,4 +47,5 @@ class PiThing(object):
 
     def setUVLED(self,value):
         GPIO.setmode(GPIO.BCM)
+        GPIO.setup(UV_PIN,GPIO.OUT)
         GPIO.output(UV_PIN,value)
