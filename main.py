@@ -44,7 +44,7 @@ def therapy():
             pi_thing.setRedLED(True)
             time.sleep(duration)
             pi_thing.setRedLED(False)
-        if distance < 10 and color == 'U'
+        if distance < 10 and color == 'U':
             pi_thing.setRedLED(False)
             pi_thing.setUVLED(True)
             time.sleep(duration)
