@@ -17,7 +17,8 @@ class PiThing(object):
 
     def ultrasound(self):
         GPIO.setmode(GPIO.BCM)
-
+        GPIO.setup(ECHO_PIN,GPIO.IN) # Echo input
+        GPIO.setup(TRIG_PIN,GPIO.OUT) # Trigger output
         print("Distance Measurement in Progress")
         print("Distance Measurement in Progress")
         GPIO.output(TRIG_PIN,False)
