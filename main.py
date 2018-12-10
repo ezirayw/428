@@ -8,7 +8,9 @@ app = Flask(__name__)
 pi_thing = PiThing()
 
 RED_PIN = 20
+RED_COND = 6
 UV_PIN = 16
+UV_COND = 12
 ECHO_PIN = 21
 TRIG_PIN = 26
 
@@ -22,6 +24,7 @@ GPIO.setup(RED_PIN,GPIO.OUT) # LED output
 GPIO.setup(UV_PIN,GPIO.OUT)
 GPIO.setup(ECHO_PIN,GPIO.IN) # Echo input
 GPIO.setup(TRIG_PIN,GPIO.OUT) # Trigger output
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -31,14 +34,24 @@ def therapy():
     skin = request.form['selectSkin']
     attachment = request.form['selectAttachment']
     color = request.form['selectWave']
-
-    if color == 'I':
-        pi_thing.setRedLED(True)
-        pi_thing.setUVLED(False)
-
-    if color == 'U':
-        pi_thing.setUVLED(True)
-        pi_thing.setRedLED(False)
+    size = request.form['selectSize']
+    duration = size * 20
+    distance = pi_thing.ultrasound()
+    while True:
+        distance = pi_thing.ultrasound()
+        if distance < 10 and color == 'I':
+            pi_thing.setUVLED(False)
+            pi_thing.setRedLED(True)
+            time.sleep(duration)
+            pi_thing.setRedLED(False)
+        if distance < 10 and color == 'U'
+            pi_thing.setRedLED(False)
+            pi_thing.setUVLED(True)
+            time.sleep(duration)
+            pi_thing.setUVLED(False)
+        if distance > 10:
+            pi_thing.setUVLED(False)
+            pi_thing.setRedLED(False)
     return redirect('/')
 
 @app.route('/sterilze',methods = ['POST'])
