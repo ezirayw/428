@@ -35,18 +35,16 @@ def therapy():
     size = request.form['selectSize']
     duration = float(size * 20)
     distance = pi_thing.ultrasound()
+
+    if color == 'I':
+        pi_thing.setUVLED(False)
+        pi_thing.setRedLED(True)
+    if color == 'U':
+        pi_thing.setRedLED(False)
+        pi_thing.setUVLED(True)
+
     while True:
         distance = pi_thing.ultrasound()
-        if distance < 10 and color == 'I':
-            pi_thing.setUVLED(False)
-            pi_thing.setRedLED(True)
-            time.sleep(duration)
-            pi_thing.setRedLED(False)
-        if distance < 10 and color == 'U':
-            pi_thing.setRedLED(False)
-            pi_thing.setUVLED(True)
-            time.sleep(duration)
-            pi_thing.setUVLED(False)
         if distance > 10:
             pi_thing.setUVLED(False)
             pi_thing.setRedLED(False)
