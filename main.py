@@ -48,6 +48,7 @@ def therapy():
         if distance > 10:
             pi_thing.setUVLED(False)
             pi_thing.setRedLED(False)
+            break
     return redirect('/')
 
 @app.route('/sterilze',methods = ['POST'])
