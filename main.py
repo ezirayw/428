@@ -33,7 +33,7 @@ def therapy():
     attachment = request.form['selectAttachment']
     color = request.form['selectWave']
     size = request.form['selectSize']
-    duration = size * 20
+    duration = float(size * 20)
     distance = pi_thing.ultrasound()
     while True:
         distance = pi_thing.ultrasound()
