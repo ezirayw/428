@@ -6,16 +6,18 @@ UV_PIN = 16
 ECHO_PIN = 21
 TRIG_PIN = 26
 
-GPIO.setmode(GPIO.BCM)
 
 class PiThing(object):
     def __init__(self):
+        GPIO.setmode(GPIO.BCM)
         GPIO.setup(RED_PIN,GPIO.OUT) # LED output
         GPIO.setup(UV_PIN,GPIO.OUT)
         GPIO.setup(ECHO_PIN,GPIO.IN) # Echo input
         GPIO.setup(TRIG_PIN,GPIO.OUT) # Trigger output
 
     def ultrasound(self):
+        GPIO.setmode(GPIO.BCM)
+
         print("Distance Measurement in Progress")
         print("Distance Measurement in Progress")
         GPIO.output(TRIG_PIN,False)
