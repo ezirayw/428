@@ -43,6 +43,7 @@ class PiThing(object):
         return distance
 
     def setRedLED(self,value):
+        GPIO.setmode(GPIO.BCM)
         GPIO.setup(RED_PIN,GPIO.OUT) # LED output
         GPIO.output(RED_PIN,value)
 
