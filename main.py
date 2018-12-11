@@ -53,14 +53,14 @@ def therapy():
 
 @app.route('/sterilze_on',methods = ['POST'])
 def sterilze():
-    UVON = request.form['UVON']
-    if UVON == 'UVON':
+    UVbutton = request.form['UV ON']
+    if UVbutton == 'UVON':
         pi_thing.setUVLED(True)
     return redirect('/')
-@app.route('/sterilize_off',methods = ['POST'])
+@app.route('/sterilze_off',methods = ['POST'])
 def sterilize_off():
-    UVOFF = request.form['UVOFF']
-    if UVOFF == 'UVOFF':
+    UVbutton = request.form['UV OFF']
+    if UVbutton == 'UVOFF':
         pi_thing.setUVLED(False)
     return redirect('/')
 if __name__ == "__main__":
