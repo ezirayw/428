@@ -4,7 +4,7 @@ import time
 RED_PIN = 20
 UV_PIN = 16
 ECHO_PIN = 21
-TRIG_PIN = 26
+TRIG_PIN = 19
 
 
 class PiThing(object):
