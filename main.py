@@ -38,9 +38,9 @@ def therapy():
 
     if color == 'I':
         pi_thing.setRedLED(True)
+        time.sleep(10)
     if color == 'U':
         pi_thing.setUVLED(True)
-
     while True:
         distance = pi_thing.ultrasound()
         if distance > 10:
