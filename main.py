@@ -51,13 +51,16 @@ def therapy():
             break
     return redirect('/')
 
-@app.route('/sterilze',methods = ['POST'])
+@app.route('/sterilze_on',methods = ['POST'])
 def sterilze():
     UVON = request.form['UVON']
-    UVOFF = request.form['UVOFF']
     if UVON == 'UVON':
         pi_thing.setUVLED(True)
-    elif UVOFF =='UVOFF':
+    return redirect('/')
+@app.route('/sterilize_off',methods = ['POST'])
+def sterilize_off():
+    UVOFF = request.form['UVOFF']
+    if UVOFF == 'UVOFF':
         pi_thing.setUVLED(False)
     return redirect('/')
 if __name__ == "__main__":
