@@ -34,8 +34,6 @@ def therapy():
     color = request.form['selectWave']
     size = request.form['selectSize']
     duration = float(size * 20)
-    print(duration)
-    print(type(duration))
 
     if color == 'I':
         pi_thing.setRedLED(True)
@@ -43,9 +41,7 @@ def therapy():
         pi_thing.setUVLED(True)
 
     while True:
-        timeout = time.time()
-        print(timeout)
-        print(type(timeout))
+        timeout = (time.time() + duration)
         distance = pi_thing.ultrasound()
         if distance > 10 or time.time() > timeout:
             pi_thing.setUVLED(False)
