@@ -23,8 +23,11 @@ class PiThing(object):
         GPIO.output(TRIG_PIN,False)
         print("Waiting for Sensor to Settle")
         time.sleep(2)
+        print("Sleep")
         GPIO.output(TRIG_PIN,True)
+        print("TRIG")
         time.sleep(0.00001)
+        print("0.0001")
         GPIO.output(TRIG_PIN,False)
 
         while GPIO.input(ECHO_PIN) == 0:
