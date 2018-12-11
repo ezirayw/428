@@ -16,10 +16,9 @@ class PiThing(object):
         GPIO.setup(TRIG_PIN,GPIO.OUT) # Trigger output
 
     def ultrasound(self):
-        GPIO.setmode(GPIO.BCM)
-        GPIO.setup(ECHO_PIN,GPIO.IN) # Echo input
-        GPIO.setup(TRIG_PIN,GPIO.OUT) # Trigger output
-        print("Distance Measurement in Progress")
+        #GPIO.setmode(GPIO.BCM)
+        #GPIO.setup(ECHO_PIN,GPIO.IN) # Echo input
+        #GPIO.setup(TRIG_PIN,GPIO.OUT) # Trigger output
         print("Distance Measurement in Progress")
         GPIO.output(TRIG_PIN,False)
         print("Waiting for Sensor to Settle")
@@ -38,16 +37,15 @@ class PiThing(object):
         distance = pulse_duration * 17150
         distance = round(distance,2)
         print "Distance:",distance,2,"cm"
-        GPIO.cleanup()
 
         return distance
 
     def setRedLED(self,value):
-        GPIO.setmode(GPIO.BCM)
-        GPIO.setup(RED_PIN,GPIO.OUT) # LED output
+        #GPIO.setmode(GPIO.BCM)
+        #GPIO.setup(RED_PIN,GPIO.OUT) # LED output
         GPIO.output(RED_PIN,value)
 
     def setUVLED(self,value):
-        GPIO.setmode(GPIO.BCM)
-        GPIO.setup(UV_PIN,GPIO.OUT)
+        #GPIO.setmode(GPIO.BCM)
+        #GPIO.setup(UV_PIN,GPIO.OUT)
         GPIO.output(UV_PIN,value)
