@@ -33,17 +33,18 @@ def therapy():
     attachment = request.form['selectAttachment']
     color = request.form['selectWave']
     size = request.form['selectSize']
-    duration = float(size * 20)
+    duration = size * 20
     distance = pi_thing.ultrasound()
 
     if color == 'I':
         pi_thing.setRedLED(True)
     if color == 'U':
         pi_thing.setUVLED(True)
-    print('Exit If statement')
+
+    timeout = time.time() + duration
     while True:
         distance = pi_thing.ultrasound()
-        if distance > 10:
+        if distance > 10 or timeout > time.time():
             pi_thing.setUVLED(False)
             pi_thing.setRedLED(False)
             break
