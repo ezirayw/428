@@ -32,7 +32,7 @@ def therapy():
     skin = request.form['selectSkin']
     attachment = request.form['selectAttachment']
     color = request.form['selectWave']
-    size = request.form['selectSize']
+    size = float(request.form['selectSize'])
     duration = float(size * 20)
 
     if color == 'I':
