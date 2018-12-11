@@ -34,6 +34,7 @@ def therapy():
     color = request.form['selectWave']
     size = float(request.form['selectSize'])
     duration = float(size * 20)
+    print(duration)
 
     if color == 'I':
         pi_thing.setRedLED(True)
