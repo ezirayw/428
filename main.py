@@ -34,7 +34,6 @@ def therapy():
     color = request.form['selectWave']
     size = request.form['selectSize']
     duration = size * 20
-    distance = pi_thing.ultrasound()
 
     if color == 'I':
         pi_thing.setRedLED(True)
