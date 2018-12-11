@@ -15,7 +15,7 @@ TRIG_PIN = 26
 skin = "hello"
 attachment = "hello"
 color = "hello"
-#hello
+count = 0
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(RED_PIN,GPIO.OUT) # LED output
@@ -54,7 +54,6 @@ def therapy():
 @app.route('/sterilze',methods = ['POST'])
 def sterilze():
     UVbutton = request.form['UV']
-    count = 0;
     if UVbutton == 'UV' and count == 0:
         pi_thing.setUVLED(True)
         count = count + 1
