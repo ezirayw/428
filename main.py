@@ -44,7 +44,7 @@ def therapy():
     timeout = time.time() + duration
     while True:
         distance = pi_thing.ultrasound()
-        if distance > 10 or time.time() > timeout:
+        if distance > 10:
             pi_thing.setUVLED(False)
             pi_thing.setRedLED(False)
             break
