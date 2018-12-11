@@ -33,7 +33,7 @@ def therapy():
     attachment = request.form['selectAttachment']
     color = request.form['selectWave']
     size = request.form['selectSize']
-    duration = size * 20
+    duration = float(size * 20)
 
     if color == 'I':
         pi_thing.setRedLED(True)
